@@ -1,0 +1,41 @@
+# Workflow para validar Pull Requests
+# Este workflow verifica se o PR está seguindo as boas práticas
+
+name: PR Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          if [[ ! "$PR_TITLE" =~ ^(feat|fix|docs|test|chore): ]]; then
+            echo "⚠️ Título do PR não segue o padrão: 'tipo: descrição'"
+            echo "Exemplos: feat: completa desafio técnico, fix: corrige testes"
+          else
+            echo "✅ Título do PR está no formato correto"
+          fi
+      
+      - name: Check if PR is from candidate branch
+        run: |
+          BRANCH_NAME="${{ github.head_ref }}"
+          if [[ "$BRANCH_NAME" =~ ^candidato- ]]; then
+            echo "✅ Branch do candidato detectada: $BRANCH_NAME"
+          else
+            echo "ℹ️ Branch não segue o padrão 'candidato-*', mas está OK"
+          fi
+      
+      - name: PR Summary
+        run: |
+          echo "📋 Resumo do PR:"
+          echo "  - Autor: ${{ github.event.pull_request.user.login }}"
+          echo "  - Branch: ${{ github.head_ref }}"
+          echo "  - Commits: ${{ github.event.pull_request.commits }}"
+          echo "  - Arquivos alterados: ${{ github.event.pull_request.changed_files }}"

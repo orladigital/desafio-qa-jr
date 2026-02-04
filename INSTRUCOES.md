@@ -97,9 +97,22 @@ desafio-pratico/
 
 1. Faça fork deste repositório
 2. Trabalhe na branch `candidato-[seu-nome]`
-3. Complete o desafio
-4. Faça commit e push das alterações
-5. Abra um Pull Request para a branch `main`
+   ```bash
+   git checkout -b candidato-joao-silva
+   ```
+3. Complete o desafio na sua branch
+4. Faça commit e push **apenas da sua branch**:
+   ```bash
+   git add .
+   git commit -m "feat: completa desafio técnico"
+   git push origin candidato-joao-silva
+   ```
+5. Abra um Pull Request da sua branch para a branch `main`
+
+> ⚠️ **Importante**: 
+> - A branch `main` está protegida e você **não conseguirá** fazer push direto nela
+> - Trabalhe sempre na sua branch pessoal
+> - Se tentar fazer push na `main`, receberá um erro de permissão
 
 ---
 

@@ -20,7 +20,10 @@ Este desafio foi criado para avaliar seus conhecimentos teóricos e práticos em
    ```
 3. Leia o arquivo **[INSTRUCOES.md](./INSTRUCOES.md)** para detalhes completos
 4. Complete o desafio na sua branch
-5. Faça um **Pull Request** e notifique a conclusão com o link do PR.
+5. Faça **push apenas da sua branch** (nunca faça push na branch `main`)
+6. Faça um **Pull Request** da sua branch para `main` e notifique a conclusão com o link do PR
+
+> ⚠️ **Importante**: A branch `main` está protegida. Você não conseguirá fazer push direto nela. Trabalhe sempre na sua branch!
 
 ## 🛠️ Ferramentas
 
